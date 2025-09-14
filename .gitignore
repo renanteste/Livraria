@@ -1,0 +1,25 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build results
+bin/
+obj/
+out/
+Debug/
+Release/
+
+# Entity Framework migrations binários
+*.dbmdl
+*.bak
+*.ldf
+*.mdf
+
+# React / Node
+frontend/web/node_modules/
+frontend/web/dist/
+*.log
+
+# Configurações locais
+.env
