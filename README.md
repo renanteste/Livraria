@@ -27,20 +27,7 @@ Este projeto faz parte do desafio técnico para a vaga de **Desenvolvedor .NET /
 ---
 
 ## 📂 Estrutura do Projeto
-
-Livraria/
-│
-├─ backend/
-│ ├─ Livraria.Api/ # API (controllers, startup)
-│ ├─ Livraria.Application/ # DTOs, Services
-│ ├─ Livraria.Domain/ # Entities, Interfaces
-│ ├─ Livraria.Infrastructure/ # DbContext, Repositories
-│ └─ Tests/ # (opcional) testes unitários
-│
-├─ frontend/
-│ └─ web/ # Aplicação React (TypeScript)
-│
-└─ README.md # Este arquivo
+<img width="422" height="276" alt="image" src="https://github.com/user-attachments/assets/0bec51dd-8c57-4511-ae84-a8e7ddc744de" />
 
 
 ---
