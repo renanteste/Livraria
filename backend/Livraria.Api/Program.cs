@@ -6,6 +6,16 @@ using Livraria.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+// Configuração do CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 // Configuração do banco
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -33,7 +43,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 var app = builder.Build();
-
+app.UseCors("AllowAll");
 // Middleware
 if (app.Environment.IsDevelopment())
 {
