@@ -27,6 +27,7 @@ Este projeto faz parte do desafio técnico para a vaga de **Desenvolvedor .NET /
 ---
 
 ## 📂 Estrutura do Projeto
+<img width="422" height="276" alt="image" src="https://github.com/user-attachments/assets/0bec51dd-8c57-4511-ae84-a8e7ddc744de" />
 
 Livraria/
 │
