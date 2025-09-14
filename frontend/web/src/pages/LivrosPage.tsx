@@ -11,7 +11,7 @@ export default function LivrosPage() {
   const { items: books, loading, error } = useAppSelector((state) => state.livros);
 
   const [isEditing, setIsEditing] = useState(false);
-  const [editingLivro, setEditingLivro] = useState<{ id: string; titulo: string; autorId: string; generoId: string } | null>(null);
+  const [editingLivro, setEditingLivro] = useState<{ id: string; titulo: string; autorId: string; generoId: string; autorNome: string; generoNome: string } | null>(null);
 
   useEffect(() => {
     dispatch(fetchBooks());
@@ -20,7 +20,7 @@ export default function LivrosPage() {
   if (loading) return <div className="text-center py-8">Carregando livros...</div>;
   if (error) return <div className="text-red-500 text-center py-8">Erro: {error}</div>;
 
-  const handleEdit = (livro: { id: string; titulo: string; autorId: string; generoId: string }) => {
+  const handleEdit = (livro: { id: string; titulo: string; autorId: string; generoId: string; autorNome: string; generoNome: string }) => {
     setEditingLivro(livro);
     setIsEditing(true);
   };
@@ -58,8 +58,8 @@ export default function LivrosPage() {
         <thead>
           <tr className="bg-gray-50">
             <th className="border border-gray-200 p-2 text-left">Título</th>
-            <th className="border border-gray-200 p-2 text-left">Autor ID</th>
-            <th className="border border-gray-200 p-2 text-left">Gênero ID</th>
+            <th className="border border-gray-200 p-2 text-left">Autor</th>
+            <th className="border border-gray-200 p-2 text-left">Gênero</th>
             <th className="border border-gray-200 p-2 text-left">Ações</th>
           </tr>
         </thead>
@@ -67,11 +67,15 @@ export default function LivrosPage() {
           {books.map((l) => (
             <tr key={l.id} className="hover:bg-gray-50">
               <td className="border border-gray-200 p-2">{l.titulo}</td>
-              <td className="border border-gray-200 p-2">{l.autorId}</td>
-              <td className="border border-gray-200 p-2">{l.generoId}</td>
+              <td className="border border-gray-200 p-2">{l.autorNome}</td>
+              <td className="border border-gray-200 p-2">{l.generoNome}</td>
               <td className="border border-gray-200 p-2 flex space-x-2">
                 <button
-                  onClick={() => handleEdit(l)}
+                  onClick={() => handleEdit({
+                    ...l,
+                    autorNome: l.autorNome ?? '',
+                    generoNome: l.generoNome ?? ''
+                  })}
                   className="text-yellow-600 hover:text-yellow-800"
                 >
                   ✏️

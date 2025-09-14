@@ -1,6 +1,18 @@
 // src/components/EditLivroForm.tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { autorService } from '../services/autoresService';
+import { generoService } from '../services/generosService';
 import { livroService } from '../services/livrosService';
+
+interface Autor {
+  id: string;
+  nome: string;
+}
+
+interface Genero {
+  id: string;
+  nome: string;
+}
 
 interface EditLivroFormProps {
   livro: { id: string; titulo: string; autorId: string; generoId: string };
@@ -12,7 +24,25 @@ export default function EditLivroForm({ livro, onClose, onUpdate }: EditLivroFor
   const [titulo, setTitulo] = useState(livro.titulo);
   const [autorId, setAutorId] = useState(livro.autorId);
   const [generoId, setGeneroId] = useState(livro.generoId);
+  const [autores, setAutores] = useState<Autor[]>([]);
+  const [generos, setGeneros] = useState<Genero[]>([]);
   const [error, setError] = useState('');
+
+  // Carregar autores e gêneros
+  useEffect(() => {
+    const fetchAutoresAndGeneros = async () => {
+      try {
+        const autoresData = await autorService.getAll();
+        const generosData = await generoService.getAll();
+        setAutores(autoresData);
+        setGeneros(generosData);
+      } catch (err) {
+        setError('Erro ao carregar autores ou gêneros.');
+      }
+    };
+
+    fetchAutoresAndGeneros();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,26 +74,38 @@ export default function EditLivroForm({ livro, onClose, onUpdate }: EditLivroFor
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="autorId" className="block text-sm font-medium text-gray-700">ID do Autor</label>
-            <input
-              type="text"
+            <label htmlFor="autorId" className="block text-sm font-medium text-gray-700">Autor</label>
+            <select
               id="autorId"
               value={autorId}
               onChange={(e) => setAutorId(e.target.value)}
               required
               className="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-blue-500"
-            />
+            >
+              <option value="">Selecione um autor</option>
+              {autores.map((autor) => (
+                <option key={autor.id} value={autor.id}>
+                  {autor.nome}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="mb-4">
-            <label htmlFor="generoId" className="block text-sm font-medium text-gray-700">ID do Gênero</label>
-            <input
-              type="text"
+            <label htmlFor="generoId" className="block text-sm font-medium text-gray-700">Gênero</label>
+            <select
               id="generoId"
               value={generoId}
               onChange={(e) => setGeneroId(e.target.value)}
               required
               className="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-blue-500"
-            />
+            >
+              <option value="">Selecione um gênero</option>
+              {generos.map((genero) => (
+                <option key={genero.id} value={genero.id}>
+                  {genero.nome}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="flex justify-end space-x-2">
             <button
