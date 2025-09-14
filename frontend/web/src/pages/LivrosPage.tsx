@@ -54,43 +54,47 @@ export default function LivrosPage() {
       <CreateLivroForm />
 
       {/* Tabela de livros */}
-      <table className="w-full border-collapse border border-gray-200 mt-6">
-        <thead>
-          <tr className="bg-gray-50">
-            <th className="border border-gray-200 p-2 text-left">Título</th>
-            <th className="border border-gray-200 p-2 text-left">Autor</th>
-            <th className="border border-gray-200 p-2 text-left">Gênero</th>
-            <th className="border border-gray-200 p-2 text-left">Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {books.map((l) => (
-            <tr key={l.id} className="hover:bg-gray-50">
-              <td className="border border-gray-200 p-2">{l.titulo}</td>
-              <td className="border border-gray-200 p-2">{l.autorNome}</td>
-              <td className="border border-gray-200 p-2">{l.generoNome}</td>
-              <td className="border border-gray-200 p-2 flex space-x-2">
-                <button
-                  onClick={() => handleEdit({
-                    ...l,
-                    autorNome: l.autorNome ?? '',
-                    generoNome: l.generoNome ?? ''
-                  })}
-                  className="text-yellow-600 hover:text-yellow-800"
-                >
-                  ✏️
-                </button>
-                <button
-                  onClick={() => handleDelete(l.id)}
-                  className="text-red-600 hover:text-red-800"
-                >
-                  🗑️
-                </button>
-              </td>
+      <div className="mt-6 overflow-x-auto">
+        <table className="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr className="bg-gray-50">
+              <th className="border border-gray-200 p-3 text-left text-sm font-medium text-gray-900">Título</th>
+              <th className="border border-gray-200 p-3 text-left text-sm font-medium text-gray-900">Autor</th>
+              <th className="border border-gray-200 p-3 text-left text-sm font-medium text-gray-900">Gênero</th>
+              <th className="border border-gray-200 p-3 text-left text-sm font-medium text-gray-900">Ações</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {books.map((l) => (
+              <tr key={l.id} className="hover:bg-gray-50 border-t border-gray-200">
+                <td className="border border-gray-200 p-3 text-sm">{l.titulo}</td>
+                <td className="border border-gray-200 p-3 text-sm">{l.autorNome}</td>
+                <td className="border border-gray-200 p-3 text-sm">{l.generoNome}</td>
+                <td className="border border-gray-200 p-3 text-sm flex space-x-2">
+                  <button
+                    onClick={() => handleEdit({
+                      ...l,
+                      autorNome: l.autorNome ?? '',
+                      generoNome: l.generoNome ?? ''
+                    })}
+                    className="text-yellow-600 hover:text-yellow-800 transition"
+                    title="Editar"
+                  >
+                    ✏️
+                  </button>
+                  <button
+                    onClick={() => handleDelete(l.id)}
+                    className="text-red-600 hover:text-red-800 transition"
+                    title="Excluir"
+                  >
+                    🗑️
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {/* Modal de Edição */}
       {isEditing && editingLivro && (

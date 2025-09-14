@@ -1,3 +1,4 @@
+// src/App.tsx
 import React from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import GenerosPage from './pages/GenerosPage';
@@ -8,7 +9,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white shadow-sm border-b">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">

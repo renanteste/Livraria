@@ -58,7 +58,7 @@ export default function EditLivroForm({ livro, onClose, onUpdate }: EditLivroFor
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg w-full max-w-md">
+      <div className="bg-white p-6 rounded-lg w-full max-w-md shadow-lg">
         <h3 className="text-lg font-medium text-gray-900 mb-4">Editar Livro</h3>
         {error && <p className="text-red-500 mb-2">{error}</p>}
         <form onSubmit={handleSubmit}>
@@ -70,7 +70,7 @@ export default function EditLivroForm({ livro, onClose, onUpdate }: EditLivroFor
               value={titulo}
               onChange={(e) => setTitulo(e.target.value)}
               required
-              className="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-blue-500"
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
           <div className="mb-4">
@@ -80,7 +80,7 @@ export default function EditLivroForm({ livro, onClose, onUpdate }: EditLivroFor
               value={autorId}
               onChange={(e) => setAutorId(e.target.value)}
               required
-              className="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-blue-500"
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="">Selecione um autor</option>
               {autores.map((autor) => (
@@ -97,7 +97,7 @@ export default function EditLivroForm({ livro, onClose, onUpdate }: EditLivroFor
               value={generoId}
               onChange={(e) => setGeneroId(e.target.value)}
               required
-              className="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-blue-500"
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="">Selecione um gênero</option>
               {generos.map((genero) => (
@@ -107,17 +107,17 @@ export default function EditLivroForm({ livro, onClose, onUpdate }: EditLivroFor
               ))}
             </select>
           </div>
-          <div className="flex justify-end space-x-2">
+          <div className="flex justify-end space-x-2 mt-6">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 transition"
+              className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 transition"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
             >
               Salvar
             </button>
