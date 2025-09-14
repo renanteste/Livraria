@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import autoresReducer from './autoresSlice';
 import generosReducer from './generosSlice';
-import livrosReducer from './LivrosSlice';
+import livrosReducer from './livrosSlice';
 
 export const store = configureStore({
   reducer: {
