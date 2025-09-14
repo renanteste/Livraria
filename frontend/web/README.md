@@ -1,69 +1,53 @@
-# React + TypeScript + Vite
+Frontend da Aplicação Livraria
+Este é o frontend da aplicação Livraria, desenvolvido com React, Redux Toolkit, Axios, e Vite. Ele consome a API RESTful fornecida pelo backend, permitindo que os usuários visualizem e interajam com gêneros, autores e livros.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📦 Tecnologias Utilizadas
+React: Framework para construção da interface do usuário.
+Redux Toolkit: Gerenciamento de estado global da aplicação.
+Axios: Biblioteca para realizar requisições HTTP à API.
+Vite: Ferramenta de build rápida para desenvolvimento e produção.
+TailwindCSS: Estilização responsiva (opcional, se estiver sendo usado).
+React Router DOM: Roteamento entre páginas.
+Zod: Validação de dados nos formulários.
+React Hook Form: Manipulação de formulários.
+🛠️ Pré-requisitos
+Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
 
-Currently, two official plugins are available:
+Node.js: Versão 20.19+ ou 22.12+ (https://nodejs.org/ ).
+npm: Gerenciador de pacotes do Node.js (vem junto com o Node.js).
+Backend rodando: Certifique-se de que o backend está rodando no endereço configurado no .env.
+🚀 Como Executar o Projeto
+1. Clone o Repositório
+Se você ainda não clonou o repositório, faça isso primeiro:
+git clone https://github.com/renanteste/Livraria.git
+cd Livraria/frontend/web
+2. Instale as Dependências
+Instale todas as dependências necessárias usando o npm:
+npm install
+3. Configure a URL da API
+No arquivo .env, configure a variável VITE_API_BASE_URL para apontar para o endereço do backend:
+VITE_API_BASE_URL=https://localhost:7279/api/v1
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+4. Inicie o Servidor de Desenvolvimento
+Execute o seguinte comando para iniciar o servidor de desenvolvimento:
+npm start
 
-## Expanding the ESLint configuration
+O frontend estará disponível no navegador em:
+http://localhost:5173
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+5. Acesse a Aplicação
+Abra o navegador e navegue até http://localhost:5173. Você verá a interface do usuário com as funcionalidades disponíveis.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+📂 Estrutura do Projeto
+A estrutura do diretório web é organizada da seguinte forma:
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+⚙️ Configuração Adicional
+Variáveis de Ambiente
+Certifique-se de que o arquivo .env contém as seguintes variáveis:
+VITE_API_BASE_URL=https://localhost:7279/api/v1
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+📞 Contato
+Em caso de dúvidas ou sugestões, entre em contato com o autor do projeto:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Nome: Renan
+GitHub: https://github.com/renanteste
