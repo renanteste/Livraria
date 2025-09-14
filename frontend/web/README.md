@@ -40,6 +40,8 @@ Abra o navegador e navegue até http://localhost:5173. Você verá a interface d
 
 📂 Estrutura do Projeto
 A estrutura do diretório web é organizada da seguinte forma:
+<img width="641" height="309" alt="image" src="https://github.com/user-attachments/assets/4bab3669-50b4-4fbc-bc12-2527afb5ba64" />
+
 
 ⚙️ Configuração Adicional
 Variáveis de Ambiente
