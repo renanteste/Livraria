@@ -6,10 +6,10 @@ namespace Livraria.Domain.Entities
 
         // FK para Autor
         public Guid AutorId { get; set; }
-        public Autor Autor { get; set; }
+        public Autor Autor { get; set; } = null!;
 
         // FK para Genero
         public Guid GeneroId { get; set; }
-        public Genero Genero { get; set; }
+        public Genero Genero { get; set; } = null!;
     }
 }
